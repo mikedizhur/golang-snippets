@@ -2,10 +2,10 @@
 I'm stupid and also forgetful. So I will collect random implementations of simple stuff and my comments just so I can reference it later.
 
 # Table of contents
-1. [Input](##input)
+1. [Input](#input)
 
 # Main
-## Input
+## Input<a name="input"></a>
 ```
 import "fmt"
 
