@@ -8,23 +8,27 @@ I'm stupid and also forgetful. So I will collect random implementations of simpl
 # Main
 ## Input<a name="input"></a>
 ```
-import "fmt"
+import (
+	"bufio"
+	"os"
+)
 
 func main() {
-	var str string
-	fmt.Scan(&str) // I always forget the pointer!!!
-	var num int
-	fmt.Sscanf(str, "%d", &num)
+	reader := bufio.NewReader(os.Stdin)
+	line, err := reader.ReadString('\n')
+	if err != nil {
+		panic(err)
+	}
 }
 ```
 
 ### Description
 
-Most basic input can be achieved with `fmt.Scan` or `fmt.Scanln`. Imho no real diff, even though "... Scan treat[s] newlines in the input as spaces" (if only one var, does not matter). Then it can be converted with fmt.Sscanf(string, "%wtv", wtv) or anything else.
+Most basic input can be achieved with `fmt.Scan`, but bufio is the only way (that I know of) to get the entire line into one variable. Then you can convert with fmt.Sscanf(string, "%wtv", wtv) or anything else.
 
 ### Yapping
 
-Actual example why I don't like Scanf:
+Actual example why I don't like fmt.Scan or fmt.Scanf:
 ```
 package main
 
@@ -55,7 +59,7 @@ number squared: 0
 
 ```
 
-Oppsie. Catching an error and calling panic won't stop that either and tbh idk what would (I'm not sure what causes it in the first place). So just scan to string and then use `fmt.Sscan()`
+Oppsie. Catching an error and calling panic won't stop that either and tbh idk what would (I'm not sure what causes it in the first place). So just read to string and then use `fmt.Sscan()`
 
 ```
 package main
@@ -112,6 +116,7 @@ func main() {
 	fmt.Println(random.IntN(100))
 }
 ```
+Update: idk changed my mind since then but wtv
 
 ### Description
 Works completely fine by just calling functions right out of the library, but we do not know the seed.
