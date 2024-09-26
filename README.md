@@ -97,6 +97,8 @@ number squared: 15129
 ```
 Yippee!!! There are like 5 trillion ways of doing it in Go, but this uses minimal number of libraries, brain cells and lines of code (ignoring error handling), so that's my preferred way, until I become a senior (citizen) and decide that "that one way :nerd: is better (even though it's worse)". That's the easiest, fastest (in terms of writing) and safest way of doing that imho. 
 
+Update: idk changed my mind since then but wtv
+
 ## Random<a name="random"></a>
 ```
 package main
@@ -116,7 +118,6 @@ func main() {
 	fmt.Println(random.IntN(100))
 }
 ```
-Update: idk changed my mind since then but wtv
 
 ### Description
 Works completely fine by just calling functions right out of the library, but we do not know the seed.
